@@ -285,26 +285,8 @@ nav {
 /* Products Grid */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-}
-
-@media (min-width: 480px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 /* Product Card */
@@ -895,55 +877,40 @@ footer {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-  .header-right .auth-buttons {
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about {
+    flex-direction: row;
+  }
+
+  .modal-actions {
+    flex-direction: row;
+  }
+
+  .hamburger {
     display: none;
   }
 
   .nav-links {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: var(--primary);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
-    transition: var(--transition);
-    gap: 1.5rem;
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    flex-direction: row;
+    padding-top: 0;
   }
 
-  .nav-links.active {
-    left: 0;
+  .header-right .auth-buttons {
+    display: flex;
   }
+}
 
-  .hamburger {
-    display: block;
-  }
-
-  .hero {
-    height: 60vh;
-  }
-
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .about {
-    flex-direction: column;
-  }
-
-  .modal-actions {
-    flex-direction: column;
-  }
-
-  .modal-actions .btn {
-    width: 100%;
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -969,20 +936,16 @@ footer {
     width: 100%;
   }
 
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .filter-buttons {
-    justify-content: center;
-  }
-
   .modal-content {
     padding: 1rem;
   }
 
   .cart-sidebar {
     max-width: 100%;
+  }
+
+  .auth-buttons {
+    display: flex;
   }
 }
 
