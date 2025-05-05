@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <header>
     <div class="logo">
@@ -23,7 +21,6 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       
@@ -60,8 +57,8 @@
   <!-- Search Section -->
   <section class="search-section">
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search products...">
-      <button id="searchButton"><i class="fas fa-search"></i></button>
+      <input type="text" id="searchInput" placeholder="Search products..." aria-label="Search products">
+      <button id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
     </div>
   </section>
 
@@ -94,8 +91,6 @@
     </div>
   </section>
 
-  
-
   <!-- Newsletter Section -->
   <section class="newsletter">
     <h2>Join Our Community</h2>
@@ -113,8 +108,8 @@
       <div class="footer-col">
         <h3>Rongali Threads</h3>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/kohua0.2"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/kohua0.2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
       
@@ -140,9 +135,9 @@
   <!-- Product Modal -->
   <div class="modal" id="productModal">
     <div class="modal-content">
-      <button class="close-modal" id="closeModal">&times;</button>
+      <button class="close-modal" id="closeModal" aria-label="Close modal">&times;</button>
       <div class="modal-img">
-        <img id="modalProductImg" src="" alt="Product Image">
+        <img id="modalProductImg" src="" alt="Product Image" loading="lazy">
       </div>
       <div class="modal-info">
         <h2 id="modalProductTitle"></h2>
@@ -156,9 +151,9 @@
         
         <div class="quantity-selector">
           <label for="quantity">Quantity:</label>
-          <button class="quantity-btn" id="decreaseQty">-</button>
+          <button class="quantity-btn" id="decreaseQty" aria-label="Decrease quantity">-</button>
           <input type="number" id="quantity" class="quantity-input" value="1" min="1">
-          <button class="quantity-btn" id="increaseQty">+</button>
+          <button class="quantity-btn" id="increaseQty" aria-label="Increase quantity">+</button>
         </div>
         
         <div class="modal-actions">
@@ -173,7 +168,7 @@
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
       <h3>Your Cart (<span id="cartTotalItems">0</span>)</h3>
-      <button class="close-cart" id="closeCart">&times;</button>
+      <button class="close-cart" id="closeCart" aria-label="Close cart">&times;</button>
     </div>
     
     <div class="cart-items" id="cartItems">
@@ -189,7 +184,7 @@
   <!-- Auth Modal -->
   <div class="modal auth-modal" id="authModal">
     <div class="modal-content">
-      <button class="close-modal" id="closeAuthModal">&times;</button>
+      <button class="close-modal" id="closeAuthModal" aria-label="Close modal">&times;</button>
       <div class="auth-container">
         <div class="auth-tabs">
           <button class="auth-tab active" data-tab="login">Login</button>

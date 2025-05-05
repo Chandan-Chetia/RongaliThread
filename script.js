@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'auto';
   });
 
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
   // Product data
   const products = [
     {
@@ -62,176 +71,46 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       id: 4,
-      title: "Pure Gilele Pat Gamosa",
-      price: "₹1,999",
-      description: "Authentic Assamese Gamosa set of 3 pieces.",
+      title: "Traditional Mekhela Chador",
+      price: "₹2,799",
+      description: "Beautiful cotton Mekhela Chador with traditional patterns.",
       features: [
-        "Set of 3 pure cotton Gamosas",
-        "Traditional red and white designs"
-      ],
-      image: "./g2.jpg",
-      category: "gamosa",
-      stock: 10
-    },
-    {
-      id: 5,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
+        "100% Pure Cotton",
+        "Comfortable for daily wear",
+        "Handwoven by local artisans"
       ],
       image: "./w3.jpg",
       category: "mekhla",
-      stock: 5
+      stock: 7
+    },
+    {
+      id: 5,
+      title: "Assamese Silk Scarf",
+      price: "₹1,299",
+      description: "Elegant silk scarf with traditional designs.",
+      features: [
+        "Pure Muga Silk",
+        "Lightweight and comfortable",
+        "Perfect for all occasions"
+      ],
+      image: "./w4.jpg",
+      category: "accessories",
+      stock: 12
     },
     {
       id: 6,
-      title: "Pure Gilele Pat Gamosa",
-      price: "₹1,999",
-      description: "Authentic Assamese Gamosa set of 3 pieces.",
+      title: "Premium Gamosa Set",
+      price: "₹2,499",
+      description: "Set of 5 premium quality Gamosas.",
       features: [
-        "Set of 3 pure cotton Gamosas",
-        "Traditional red and white designs"
+        "Set of 5 pieces",
+        "Traditional designs",
+        "High quality cotton"
       ],
-      image: "./g3.jpg",
+      image: "./g2.jpg",
       category: "gamosa",
-      stock: 10
-    },
-    {
-      id: 7,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w4.jpg",
-      category: "mekhla",
-      stock: 5
-    },
-    {
-      id: 8,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w5.jpg",
-      category: "mekhla",
-      stock: 5
-    },   
-    {
-      id: 9,
-      title: "Pure Gilele Pat Gamosa",
-      price: "₹1,999",
-      description: "Authentic Assamese Gamosa set of 3 pieces.",
-      features: [
-        "Set of 3 pure cotton Gamosas",
-        "Traditional red and white designs"
-      ],
-      image: "./g4.jpg",
-      category: "gamosa",
-      stock: 10
-    },
-    {
-      id: 10,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w6.jpg",
-      category: "mekhla",
-      stock: 5
-    },   
-    {
-      id: 11,
-      title: "Pure Gilele Pat Gamosa",
-      price: "₹1,999",
-      description: "Authentic Assamese Gamosa set of 3 pieces.",
-      features: [
-        "Set of 3 pure cotton Gamosas",
-        "Traditional red and white designs"
-      ],
-      image: "./g1.jpg",
-      category: "gamosa",
-      stock: 10
-    },
-    {
-      id: 12,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w7.jpg",
-      category: "mekhla",
-      stock: 5
-    },
-    {
-      id: 13,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w8.jpg",
-      category: "mekhla",
-      stock: 5
-    },
-    {
-      id: 14,
-      title: "Pure Padmini Mekhela Chador",
-      price: "₹3,499",
-      originalPrice: "₹4,999",
-      description: "Exquisite handwoven Muga silk with traditional motifs.",
-      features: [
-        "100% Pure Muga Silk",
-        "Handwoven by skilled artisans",
-        "Traditional Assamese motifs"
-      ],
-      image: "./w9.jpg",
-      category: "mekhla",
-      stock: 5
-    },
-    {
-      id: 14,
-      title: "Handkerchief",
-      price: "₹45",
-      originalPrice: "₹60",
-      description: "Hand made Handkerchief",
-      features: [
-        "100% cutton",
-        "White colour Handkerchief",
-        "Traditional Assamese Handkerchief"
-      ],
-      image: "./R1.jpg",
-      category: "handkerchief",
-      stock: 5
-    },
+      stock: 8
+    }
   ];
 
   // Render products
@@ -247,6 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
         product.title.toLowerCase().includes(term) || 
         product.description.toLowerCase().includes(term)
       );
+    }
+
+    if (filteredProducts.length === 0) {
+      productsGrid.innerHTML = '<p class="no-products">No products found matching your criteria.</p>';
+      return;
     }
 
     filteredProducts.forEach(product => {
@@ -422,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!product) return;
 
     if (product.stock <= 0) {
-      alert('This product is out of stock');
+      showNotification('This product is out of stock', 'error');
       return;
     }
 
@@ -430,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (existingItem) {
       if (existingItem.quantity + quantity > product.stock) {
-        alert(`Only ${product.stock} items available`);
+        showNotification(`Only ${product.stock} items available`, 'error');
         return;
       }
       existingItem.quantity += quantity;
@@ -445,17 +329,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateCartUI();
-    showNotification(`${quantity} ${product.title} added to cart`);
+    showNotification(`${quantity} ${product.title} added to cart`, 'success');
   }
 
-  function showNotification(message) {
+  function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
-    notification.className = 'notification';
+    notification.className = `notification ${type}`;
     notification.textContent = message;
     document.body.appendChild(notification);
     
     setTimeout(() => {
-      notification.remove();
+      notification.classList.add('fade-out');
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
     }, 3000);
   }
 
@@ -484,15 +371,15 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
           <div class="cart-item-img">
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${item.image}" alt="${item.title}" loading="lazy">
           </div>
           <div class="cart-item-info">
             <h4 class="cart-item-title">${item.title}</h4>
             <div class="cart-item-price">${item.price}</div>
             <div class="cart-item-quantity">
-              <button class="decrease-item" data-id="${item.id}">-</button>
+              <button class="decrease-item" data-id="${item.id}" aria-label="Decrease quantity">-</button>
               <span>${item.quantity}</span>
-              <button class="increase-item" data-id="${item.id}">+</button>
+              <button class="increase-item" data-id="${item.id}" aria-label="Increase quantity">+</button>
             </div>
             <button class="cart-item-remove" data-id="${item.id}">Remove</button>
           </div>
@@ -525,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const product = products.find(p => p.id == productId);
           
           if (item.quantity >= product.stock) {
-            alert(`Only ${product.stock} items available`);
+            showNotification(`Only ${product.stock} items available`, 'error');
             return;
           }
           
@@ -539,6 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const productId = this.getAttribute('data-id');
           cart = cart.filter(item => item.id != productId);
           updateCartUI();
+          showNotification('Item removed from cart', 'error');
         });
       });
     }
@@ -564,10 +452,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Checkout button
   document.querySelector('.cart-checkout').addEventListener('click', function() {
     if (cart.length === 0) {
-      alert('Your cart is empty');
+      showNotification('Your cart is empty', 'error');
       return;
     }
-    alert('Proceeding to checkout');
+    showNotification('Proceeding to checkout', 'success');
     cartSidebar.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = 'auto';
@@ -627,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form submissions
   document.getElementById('loginFormElement').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Login successful');
+    showNotification('Login successful', 'success');
     authModal.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = 'auto';
@@ -635,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('signupFormElement').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Account created successfully');
+    showNotification('Account created successfully', 'success');
     authModal.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = 'auto';
@@ -645,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('newsletterForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const email = this.querySelector('input').value;
-    alert(`Thank you for subscribing with ${email}`);
+    showNotification(`Thank you for subscribing with ${email}`, 'success');
     this.reset();
   });
 
