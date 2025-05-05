@@ -36,6 +36,93 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
+/* Add this at the top of your CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Fix for mobile tap highlight */
+}
+
+/* Mobile Menu Fix */
+.nav-links {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: var(--primary);
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  transition: var(--transition);
+  gap: 1.5rem;
+  z-index: 999;
+}
+
+.nav-links.active {
+  left: 0;
+}
+
+/* Always show auth buttons on mobile */
+.auth-buttons {
+  display: flex !important;
+  gap: 0.5rem;
+}
+
+/* Product Grid Fix */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Touch Target Sizes */
+.btn, .filter-btn, .add-to-cart, .buy-now {
+  min-height: 44px; /* Minimum touch target size */
+}
+
+/* Modal Fixes */
+.modal-content {
+  width: 95%;
+  max-width: 500px;
+}
+
+/* Cart Sidebar Fix */
+.cart-sidebar {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Quantity Selector Fix */
+.quantity-btn {
+  width: 44px;
+  height: 44px;
+}
+
+/* Mobile Viewport Fix */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+/* Prevent zoom on input focus */
+input, select, textarea {
+  font-size: 16px;
+}
+
 /* Header Styles */
 header {
   background-color: var(--primary);
@@ -961,4 +1048,46 @@ button, [role="button"] {
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+/* Mobile Menu Styles */
+.hamburger {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  /* Hide regular nav links on mobile */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--primary);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    transition: var(--transition);
+    gap: 1.5rem;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+  
+  /* Keep auth buttons visible */
+  .auth-buttons {
+    display: flex !important;
+  }
 }

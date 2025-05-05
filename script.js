@@ -540,3 +540,133 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial render
   renderProducts();
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile Menu Toggle - Fixed
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const overlay = document.getElementById('overlay');
+
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close mobile menu when clicking on overlay
+  overlay.addEventListener('click', function() {
+    if (navLinks.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // Fixed: Ensure cart is initialized
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Fixed: Update cart on page load
+  function updateCartUI() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector('.cart-count').textContent = totalItems;
+    document.getElementById('cartTotalItems').textContent = totalItems;
+    
+    // ... rest of your cart UI update code ...
+    
+    // Save cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // Initialize cart UI
+  updateCartUI();
+
+  // Fixed: Product modal quantity selector
+  const decreaseQty = document.getElementById('decreaseQty');
+  const increaseQty = document.getElementById('increaseQty');
+  const quantityInput = document.getElementById('quantity');
+
+  decreaseQty.addEventListener('click', function() {
+    let value = parseInt(quantityInput.value) || 1;
+    if (value > 1) {
+      quantityInput.value = value - 1;
+    }
+  });
+
+  increaseQty.addEventListener('click', function() {
+    let value = parseInt(quantityInput.value) || 1;
+    quantityInput.value = value + 1;
+  });
+
+  // Fixed: Input validation
+  quantityInput.addEventListener('input', function() {
+    let value = parseInt(this.value) || 1;
+    if (value < 1) value = 1;
+    this.value = value;
+  });
+
+  // ... rest of your existing code ...
+
+  // Fixed: Window resize handler
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+});
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+const overlay = document.getElementById('overlay');
+
+function toggleMenu() {
+  navLinks.classList.toggle('active');
+  overlay.classList.toggle('active');
+  document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+  
+  // Toggle hamburger icon
+  const icon = hamburger.querySelector('i');
+  if (navLinks.classList.contains('active')) {
+    icon.classList.replace('fa-bars', 'fa-times');
+  } else {
+    icon.classList.replace('fa-times', 'fa-bars');
+  }
+}
+
+hamburger.addEventListener('click', function(e) {
+  e.stopPropagation();
+  toggleMenu();
+});
+
+// Close menu when clicking outside
+overlay.addEventListener('click', function() {
+  if (navLinks.classList.contains('active')) {
+    toggleMenu();
+  }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function() {
+    if (window.innerWidth <= 768) {
+      toggleMenu();
+    }
+  });
+});
+
+// Close menu when resizing to desktop
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+    toggleMenu();
+  }
+});
